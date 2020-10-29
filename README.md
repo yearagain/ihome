@@ -1,6 +1,7 @@
 [toc]
 # 更新日志
 ```
+2020年10月29日 19:54:48 添加go gin框架搭建的快速路由
 2020年10月27日 11:14:38 使用VUE重构前端
 更早以前
 前端demo
@@ -11,9 +12,11 @@
 
 This is a personal homepage that contains blogs.
 这是一个包含博客的个人主页。
-展示:~~[我的主页](http://yearagain.com)~~
+展示(暂不支持):~~[我的主页](http://yearagain.com)~~
 
 设计思路:前端后端彻底分类,完全使用ajax实现数据交互
+
+
 
 # 前端框架
 
