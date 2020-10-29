@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>iHome</title>
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
-<link rel="icon" href="../img/favicon.ico" >
+<link rel="icon" href="./img/favicon.ico" >
 <style type="text/css"> 
     html,body{
       
@@ -17,29 +17,8 @@
         margin-top:1%;
       }
     }
-    .content{
-      padding-top: 5px;
-      width: 1000px;
-      margin:0 auto;
-    }
-    #info{
-      width: 198px;
-      float: left;
-      text-align: center;
-    }
-    #list{
-      width: 798px;
-      /*min-height: 500px;*/
-      float: right;
-    }
-    .portrait{
-      padding-top: 10px;
-      display: block;
-      border-radius:50%;  /*圆形*/
-      height: 100px;
-      margin:0 auto;
-      
-    }
+    
+    
 </style>
 </head>
 
@@ -51,20 +30,19 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="../index.html">首页</a>
+            <a class="nav-link" href="./index.html">首页</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="blog.html">博客<span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="./blog/blog.html">博客<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">其它</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="../about.html">关于</a>
+          <li class="nav-item  active">
+              <a class="nav-link" href="./about.html">关于</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -73,46 +51,12 @@
         </form>
       </div>
   </nav>
-  <div class="content">
-    <div id="info" class="border">
-      <img class="portrait" :src="portrait" alt="头像">
-          <p><span>{{slogan1}}</span></p>
-          <hr />
-          <p><span>{{slogan2}}</span></p>
-    </div>
-    <div id="list" class="border">
-      <ui class="list-group">
-        <li class="list-group-item"  v-for="item in bloglist">
-          {{item.title}}<br>{{item.abstract}}
-        </li>
-      </ui>
-    </div>
-  </div>
-  
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>  
+  <div style="padding-top: 10%;text-align: center;font-size: 2.5rem;">
+  开源地址<br><a href="https://github.com/yearagain/ihome">https://github.com/yearagain/ihome</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>   <!--markdown处理-->
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script> 
-<script>
 
-var info = new Vue({
-  el: '#info',
-  data:{
-    slogan1:"String1",
-    slogan2:"String2",
-    portrait:"../img/portrait.jpg"
-  }
-})
-var list=new Vue({
-  el: '#list',
-  data:{
-    bloglist:[]
-  }
-})
-list.$data.bloglist=[
-  {title:"1",abstract:"1" },
-  {title:"2",abstract:"2" }
-]
-</script>
 </body>
 </html>

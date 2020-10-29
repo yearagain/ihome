@@ -13,6 +13,8 @@ This is a personal homepage that contains blogs.
 这是一个包含博客的个人主页。
 展示:~~[我的主页](http://yearagain.com)~~
 
+设计思路:前端后端彻底分类,完全使用ajax实现数据交互
+
 # 前端框架
 
 前端:bootstrap,vue
