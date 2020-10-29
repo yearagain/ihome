@@ -16,8 +16,6 @@ This is a personal homepage that contains blogs.
 
 设计思路:前端后端彻底分类,完全使用ajax实现数据交互
 
-
-
 # 前端框架
 
 前端:bootstrap,vue
@@ -28,7 +26,9 @@ markdown处理:[marked](https://github.com/markedjs/marked)
 
 # 后端
 
+# 路由
 
+route目录提供了一个使用go构建的快速静态路由
 
 # 未来计划
 
