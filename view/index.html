@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>iHome</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+<link rel="icon" href="./img/favicon.ico" >
+<style type="text/css"> 
+    html,body{
+      
+      width: 100%;
+      height:100%;
+      
+    }
+    @media (max-width: 1100px) {  
+      nav{
+        margin-top:1%;
+      }
+    } 
+    .bg{
+      width: 100%;
+      height:100%;
+      display: block;
+      position: fixed;
+      z-index: -1;
+      background: url(./img/background.jpg) center center / cover no-repeat rgb(102, 102, 102);
+    }
+    .content{
+      display: block;
+      text-align: center;
+      margin:0 auto;
+      width: 70%;
+      height: 50%;
+      color: orange;
+      font-size:2.5rem;
+    }
+    .portrait{
+      display: block;
+      border-radius:50%;  /*圆形*/
+      height: 20%;
+      margin:0 auto;
+      
+    }
+    .linkimg{
+      display: block;
+      border-radius:50%;  /*圆形*/
+      width: 3.5rem;
+    }
+    p{
+      display: table;
+      width: 100%;
+    }
+    p span{
+      display:table-cell;
+      text-align: center;
+      vertical-align:middle;
+    }
+    
+</style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  
+  <nav class="navbar fixed-top  navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">iHome</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">首页 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog/blog.html">博客</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">其它</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">关于</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="暂不可用">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" disabled="disabled">搜索</button>
+        </form>
+      </div>
+  </nav>
+  <div style="display: table;height: 100%;width: 100%;">
+    <div style="display: table-cell;vertical-align: middle;">
+      <div id="info" class="content">
+        <img class="portrait" :src="portrait" alt="头像">
+        <p><span>{{slogan1}}</span></p>
+        <hr />
+        <p><span>{{slogan2}}</span></p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#"><img class="linkimg" alt="" src="./img/portrait.jpg"></a></li>
+          <li class="list-inline-item"><a href="#"><img class="linkimg" alt="" src="./img/portrait.jpg"></a></li>
+          <li class="list-inline-item"><a href="#"><img class="linkimg" alt="" src="./img/portrait.jpg"></a></li>
+          <li class="list-inline-item"><a href="#"><img class="linkimg" alt="" src="./img/portrait.jpg"></a></li>
+        </ul>
+      </div>
+    </div> s
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script> 
+<script>
+  var info = new Vue({
+  el: '#info',
+  data:{
+    slogan1:"String1",
+    slogan2:"String2",
+    portrait:"./img/portrait.jpg"
+  }
+})
+</script>
+</body>
+</html>
