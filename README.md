@@ -7,7 +7,7 @@
 ...古老版本
 ```
 
-# 介绍于展示
+# 介绍与展示
 
 This is a personal homepage that contains blogs.
 这是一个包含博客的个人主页。
