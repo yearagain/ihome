@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>iHome</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+<link rel="icon" href="/static/img/favicon.ico" >
+<style type="text/css"> 
+ .body{
+
+     width: 70%;
+     margin: 0 auto;
+     margin-top: 5px;
+ }   
+ .nav-tabs{
+    text-align: right;
+    width: 70%;
+ }
+ .tab-content{
+     font-size: 1.5rem;
+     padding: 5px;
+ } 
+ .btn-primary{
+    float:right;
+    
+    margin-bottom: 10px;
+    margin-right: 10px;
+ }
+ 
+ #list{
+   clear: both;
+ }
+
+ .btn-danger{
+     
+     float:right;
+ }
+ 
+</style>
+</head>
+
+<body>
+    <div class="body">
+    <nav id="nav">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">博客管理</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">设置</a>
+          <a class="nav-item nav-link" id="logout" href="#" >注销</a>
+        </div>
+    </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div id="info">
+              当前用户:{{username}}<br>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <a class="btn btn-primary" href="/static/view/background/addblog.html" role="button">新建</a>
+          <div id="list">
+            
+              <ui class="list-group">
+                <li class="list-group-item"  v-for="item in bloglist" v-if="item.show">
+                  {{item.title}}
+                  <button @click="delblog(item)" type="button" class="btn btn-danger">删除</button>
+                  
+                </li>
+              </ui>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">slogan1</span>
+                </div>
+                
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">slogan2</span>
+                </div>
+                
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <button type="button" class="btn btn-success">修改</button>
+            <div style="margin-top:10px;" class="alert alert-success " role="alert">
+                修改成功
+            </div>
+            <div style="margin-top:10px;" class="alert alert-danger" role="alert">
+              修改失败
+            </div>
+        </div>
+      </div>
+    </div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+<script src="/static/js/background/auth.js"></script> 
+<script src="/static/js/background/bgsite.js"></script>
+
+<script>
+    var logout = document.getElementById('logout');
+    logout.onclick=function(){
+      localStorage.setItem("token", null);
+      window.location.href="/static/view/background/login.html";
+    }
+    
+</script>
+</body>
+</html>

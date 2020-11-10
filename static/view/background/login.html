@@ -1,0 +1,46 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>iHome</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+<link rel="icon" href="/static/img/favicon.ico" >
+<style type="text/css"> 
+
+  .body{
+   
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 15%;
+  }
+  h1{
+    text-align: center;
+  }
+
+</style>
+</head>
+
+<body>
+  <div id="signin" class="body">
+    <h1>输入口令</h1>
+    <div class="input-group mb-3">
+        <input v-model.trim:value="password" @change="change" type="text" class="form-control" placeholder="Input password please." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button @click="submit" class="btn btn-outline-secondary" type="button">go in</button>
+        </div>
+    </div>
+    
+    <div :class="messtyle" role="alert">
+      {{message}}
+    </div>
+  </div>
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script> 
+<script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script> 
+<script src="/static/js/background/login.js"></script>
+
+</body>
+</html>

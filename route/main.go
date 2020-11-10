@@ -1,16 +1,19 @@
 package main
+
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/Unknwon/goconfig"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
+
 func main() {
 	cfg, err := goconfig.LoadConfigFile("conf.ini")
 	if err != nil {
 		fmt.Println(err)
 	}
-	viewstr, err := cfg.GetValue("static", "view")
+	staticroute, err := cfg.GetValue("static", "staticroute")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -18,7 +21,26 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	router :=gin.Default()
-	router.StaticFS("/", http.Dir(viewstr))
+	index, err := cfg.GetValue("static", "index")
+	if err != nil {
+		fmt.Println(err)
+	}
+	background, err := cfg.GetValue("static", "background")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	router := gin.Default()
+	// 使用gin插件支持跨域请求
+	//router.Use(cors.Default())
+	router.StaticFS("/static/", http.Dir(staticroute))
+
+	router.GET("/", func(c *gin.Context) {
+		c.Redirect(http.StatusFound, index)
+	})
+	router.GET("/bg", func(c *gin.Context) {
+		c.Redirect(http.StatusFound, background)
+	})
+
 	router.Run(port)
 }

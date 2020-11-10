@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>iHome</title>
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+<link rel="icon" href="/static/img/favicon.ico" >
+<link rel="stylesheet" href="/static/dist/easymde/easymde.min.css">
+<style type="text/css"> 
+
+  .body{
+
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
+
+
+</style>
+</head>
+
+<body>
+  <div  class="body">
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">标题</span>
+      </div>
+      <input id="title"  type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+      <button id="addblog" type="button" class="btn btn-primary">发布</button>
+    </div>
+    <textarea id="my-text-area"></textarea>
+  </div>
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script> 
+<script src="/static/dist/easymde/easymde.min.js"></script>
+<script>
+  var easyMDE = new EasyMDE({element: document.getElementById('my-text-area')});
+  
+  
+  $("#addblog").click(function(){
+    var title =$('#title').val();
+    var content=easyMDE.value();
+    $.ajax({
+      type:"POST",
+      url:"http://127.0.0.1:8888/addblog",
+      data:{
+        blogtitle:title,
+        blogcontent:content
+      },
+      success:function(res){
+        alert(res.msg)
+        window.location.href="/bg";
+      },
+      error:function(err){
+        alert(err.responseJSON.msg)
+        localStorage.setItem("token", null);
+        // window.location.href="/static/view/background/login.html";
+      }
+    })
+  })
+</script>
+</body>
+</html>
