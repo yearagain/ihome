@@ -1,5 +1,6 @@
 var getbloglist="http://127.0.0.1:8888/getbloglist";
-var delblog="http://127.0.0.1:8888/delblog"
+var delblog="http://127.0.0.1:8888/delblog";
+var token = localStorage.getItem("token");
 /**
  * 
  */
@@ -34,7 +35,8 @@ var list=new Vue({
             $.ajax({
                 type:"POST",
                 url:delblog,
-                data:{delblogid:item.id},
+                data:{delblogid:item.id,
+                    token:token},
                 success:function(res){
                     item.show=false;
                     alert(res.msg);
